@@ -1,14 +1,11 @@
 package mina.apps.countries.network;
 
 
-import android.app.DownloadManager;
 import android.content.Context;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-import mina.apps.countries.Main;
 
 public class HTTPHelper {
     private static RequestQueue mQueue;
@@ -26,6 +23,10 @@ public class HTTPHelper {
 
     public static String getRegionCount(String name){
         return getFields(GET_REGION+name, "");
+    }
+
+    public static String getRegionCountries(String name){
+        return getFields(GET_REGION+name, "name;alpha2Code;population");
     }
 
     public static void addTask(Context context, Request request){

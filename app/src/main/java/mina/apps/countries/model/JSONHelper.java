@@ -3,6 +3,7 @@ package mina.apps.countries.model;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -12,18 +13,40 @@ public class JSONHelper {
         ArrayList<String> items = new ArrayList<>();
         for (int i = 0; i < jsonObjects.length(); i++) {
             try {
-                items.add((String)jsonObjects.getString(i));
+                items.add(jsonObjects.getString(i));
             } catch (JSONException e) {
             }
         }
         return items;
     }
 
-    public static<T extends JSONConstructor> ArrayList<T> parseArray(JSONArray jsonObjects){
-        ArrayList<T> items = new ArrayList<>();
+    public static ArrayList<Country> parseArray(JSONArray jsonObjects, Country c){
+        ArrayList<Country> items = new ArrayList<>();
         for (int i = 0; i < jsonObjects.length(); i++) {
             try {
-                items.add((T)T.construct(jsonObjects.getJSONObject(i)));
+                items.add(c.construct(jsonObjects.getJSONObject(i)));
+            } catch (JSONException e) {
+            }
+        }
+        return items;
+    }
+
+    public static ArrayList<Currency> parseArray(JSONArray jsonObjects, Currency c){
+        ArrayList<Currency> items = new ArrayList<>();
+        for (int i = 0; i < jsonObjects.length(); i++) {
+            try {
+                items.add(c.construct(jsonObjects.getJSONObject(i)));
+            } catch (JSONException e) {
+            }
+        }
+        return items;
+    }
+
+    public static ArrayList<Language> parseArray(JSONArray jsonObjects, Language language){
+        ArrayList<Language> items = new ArrayList<>();
+        for (int i = 0; i < jsonObjects.length(); i++) {
+            try {
+                items.add(language.construct(jsonObjects.getJSONObject(i)));
             } catch (JSONException e) {
             }
         }
@@ -31,17 +54,40 @@ public class JSONHelper {
     }
 
 
+    public static String getStringOrDefault(JSONObject object, String field){
+        String ret = "";
+        try{
+            ret = object.getString(field);
+        } catch (JSONException e){
+        }
+        return ret;
+    }
+
+    public static int getIntOrDefault(JSONObject object, String field){
+        int ret = 0;
+        try{
+            ret = object.getInt(field);
+        } catch (JSONException e){
+        }
+        return ret;
+    }
+
+    public static double getDoubleOrDefault(JSONObject object, String field){
+        double ret = 0;
+        try{
+            ret = object.getDouble(field);
+        } catch (JSONException e){
+        }
+        return ret;
+    }
+
+    public static JSONArray getArrayOrDefault(JSONObject object, String field){
+        JSONArray ret = new JSONArray();
+        try{
+            ret = object.getJSONArray(field);
+        } catch (JSONException e){
+        }
+        return ret;
+    }
 
 }
-
-
-//    public static ArrayList<Country> fromJson(JSONArray jsonObjects) {
-//        ArrayList<Country> countries = new ArrayList<Country>();
-//        for (int i = 0; i < jsonObjects.length(); i++) {
-//            try {
-//                countries.add(new Country(jsonObjects.getJSONObject(i)));
-//            } catch (JSONException e) {
-//            }
-//        }
-//        return countries;
-//    }
