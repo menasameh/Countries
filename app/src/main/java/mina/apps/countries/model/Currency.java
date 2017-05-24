@@ -14,4 +14,9 @@ public class Currency implements JSONConstructor {
         item.symbol = JSONHelper.getStringOrDefault(object, "symbol");
         return item;
     }
+
+    @Override
+    public String toString() {
+        return name+" - "+symbol;
+    }
 }

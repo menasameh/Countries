@@ -1,6 +1,7 @@
 package mina.apps.countries.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import mina.apps.countries.CountryView;
 import mina.apps.countries.R;
 import mina.apps.countries.model.Country;
+import mina.apps.countries.network.HTTPHelper;
 
 
 public class CountriesAdapter extends BaseAdapter {
@@ -73,15 +77,15 @@ public class CountriesAdapter extends BaseAdapter {
 
         ImageView flag = (ImageView) view.findViewById(R.id.flag);
         Glide.with(mContext).load(country.getSmallFlag()).into(flag);
-        String d = country.getSmallFlag();
-//        view.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(mContext, CountriesList.class);
-//                i.putExtra(CountriesList.LABEL, "Countries in "+ r.name);
-//                i.putExtra(CountriesList.URL, HTTPHelper.getRegionCountries(r.name));
-//            }
-//        });
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext, CountryView.class);
+                i.putExtra(CountryView.URL, HTTPHelper.getCountry(country.code));
+                mContext.startActivity(i);
+            }
+        });
         return view;
     }
 

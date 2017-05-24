@@ -14,4 +14,9 @@ public class Language implements JSONConstructor {
         item.nativeName = JSONHelper.getStringOrDefault(object, "nativeName");
         return item;
     }
+
+    @Override
+    public String toString() {
+        return name+" - "+nativeName;
+    }
 }

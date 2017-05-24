@@ -12,12 +12,11 @@ public class HTTPHelper {
 
 
     public static String BASE_URL = "https://restcountries.eu/rest/v2/";
-
     public static String GET_ALL = BASE_URL + "all";
-
     public static String GET_REGION = BASE_URL + "region/";
-
     public static String GET_COUNTRY_BY_NAME = BASE_URL+"name/";
+    public static String GET_COUNTRY_BY_CODE = BASE_URL+"alpha/";
+
 
     public static String getFields(String url, String fields){
         return url+"?fields="+fields;
@@ -34,6 +33,11 @@ public class HTTPHelper {
     public static String getSearchCountries(String name){
         return getFields(GET_COUNTRY_BY_NAME+name, "name;alpha2Code;population");
     }
+
+    public static String getCountry(String code){
+        return GET_COUNTRY_BY_CODE+code;
+    }
+
 
     public static void addTask(Context context, Request request){
         if(mQueue == null){
