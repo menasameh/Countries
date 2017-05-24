@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Explore" />
-        <activity android:name=".CountriesList"></activity>
+        <activity android:name=".CountriesList" />
+        <activity android:name=".Search"></activity>
     </application>
 
 </manifest>

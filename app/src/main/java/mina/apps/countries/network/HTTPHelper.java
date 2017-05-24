@@ -17,6 +17,8 @@ public class HTTPHelper {
 
     public static String GET_REGION = BASE_URL + "region/";
 
+    public static String GET_COUNTRY_BY_NAME = BASE_URL+"name/";
+
     public static String getFields(String url, String fields){
         return url+"?fields="+fields;
     }
@@ -27,6 +29,10 @@ public class HTTPHelper {
 
     public static String getRegionCountries(String name){
         return getFields(GET_REGION+name, "name;alpha2Code;population");
+    }
+
+    public static String getSearchCountries(String name){
+        return getFields(GET_COUNTRY_BY_NAME+name, "name;alpha2Code;population");
     }
 
     public static void addTask(Context context, Request request){
