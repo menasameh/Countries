@@ -1,27 +1,14 @@
 package mina.apps.countries;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.ExpandedMenuView;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import mina.apps.countries.network.HTTPHelper;
 
 public class Main extends AppCompatActivity {
 
@@ -38,11 +25,16 @@ public class Main extends AppCompatActivity {
             }
         });
 
+        final EditText searchText = (EditText) findViewById(R.id.search_text);
+
         Button search = (Button) findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Main.this, Search.class));
+                Intent i = new Intent(Main.this, CountriesList.class);
+                i.putExtra(CountriesList.LABEL, "Results for \""+ searchText.getText()+"\"");
+                i.putExtra(CountriesList.URL, HTTPHelper.getSearchCountries(searchText.getText().toString()));
+                startActivity(i);
             }
         });
 

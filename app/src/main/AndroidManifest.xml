@@ -19,7 +19,6 @@
         </activity>
         <activity android:name=".Explore" />
         <activity android:name=".CountriesList" />
-        <activity android:name=".Search" />
         <activity android:name=".CountryView"></activity>
     </application>
 

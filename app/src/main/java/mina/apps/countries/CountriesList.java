@@ -1,10 +1,11 @@
 package mina.apps.countries;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -12,17 +13,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 
 import mina.apps.countries.adapters.CountriesAdapter;
-import mina.apps.countries.adapters.RegionAdapter;
 import mina.apps.countries.model.Country;
 import mina.apps.countries.model.JSONHelper;
-import mina.apps.countries.model.Region;
 import mina.apps.countries.network.HTTPHelper;
 
 public class CountriesList extends AppCompatActivity {
@@ -59,12 +55,17 @@ public class CountriesList extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         ArrayList<Country> list = JSONHelper.<Country>parseArray(response, new Country());
+                        if(list.isEmpty()) {
+                            Toast.makeText(CountriesList.this, "No results found", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
                         adapter.add(list);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(CountriesList.this, "No results found", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
         HTTPHelper.addTask(this, request);
