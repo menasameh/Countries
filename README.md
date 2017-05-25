@@ -1,7 +1,7 @@
 # Contents
 ##### - [Features](#features)
 ##### - [Screenshots](#screenshots)
-##### - [Future Work](#future-Work)
+##### - [Future work](#future-work)
 
 ## Features
 
@@ -34,25 +34,25 @@ When you click on country name a Country view is shown with some details of that
 
 
 ## Screenshots
-####Home page
-<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/home.png" style="width: 200px;"/>
+#### Home page
+<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/home.png" width="200"/>
 
 
 
-####Search results
-<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/searchResults.png" style="width: 200px;"/>
+#### Search results
+<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/searchResults.png" width="200"/>
 
 
-####Regions list
-<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/regionsList.png" style="width: 200px;"/>
+#### Regions list
+<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/regionsList.png" width="200"/>
 
 
-####Countries list
-<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/countriesList.png" style="width: 200px;"/>
+#### Countries list
+<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/countriesList.png" width="200"/>
 
 
-####Country Details
-<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/countryDetails.png" style="width: 200px;"/>
+#### Country Details
+<img src="https://raw.githubusercontent.com/menasameh/Countries/master/Screenshots/countryDetails.png" width="200"/>
 
 
 ## Future Work
