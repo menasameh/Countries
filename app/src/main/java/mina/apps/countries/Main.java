@@ -38,12 +38,19 @@ public class Main extends AppCompatActivity {
             }
         });
 
-
         Button search = (Button) findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Main.this, Search.class));
+            }
+        });
+
+        Button compare = (Button) findViewById(R.id.compare);
+        compare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Main.this, "Not Implemented yet", Toast.LENGTH_SHORT).show();
             }
         });
 

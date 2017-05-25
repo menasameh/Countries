@@ -39,7 +39,7 @@ public class Explore extends AppCompatActivity {
     private void populateRegions(final RegionAdapter adapter) {
         final JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
-                HTTPHelper.getFields(HTTPHelper.GET_ALL,"region"),
+                HTTPHelper.getRegions(),
                 null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -49,10 +49,8 @@ public class Explore extends AppCompatActivity {
                             try {
                                 regions.add(response.getJSONObject(i).getString("region"));
                             } catch(JSONException e){
-
                             }
                         }
-
                         Iterator<String> iter = regions.iterator();
                         while(iter.hasNext()){
                             String item = iter.next();

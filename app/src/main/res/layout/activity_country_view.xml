@@ -24,8 +24,7 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="name - nativeName"/>
+        android:textSize="30sp"/>
 
 
     <LinearLayout
@@ -47,8 +46,7 @@
             android:layout_weight="9"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
-            android:gravity="center|left"
-            android:text="capital"/>
+            android:gravity="center|left" />
     </LinearLayout>
 
 
@@ -69,8 +67,7 @@
             android:layout_weight="9"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
-            android:gravity="center|left"
-            android:text="region"/>
+            android:gravity="center|left"/>
     </LinearLayout>
 
 
@@ -155,8 +152,7 @@
             android:layout_weight="9"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
-            android:gravity="center|left"
-            android:text="population"/>
+            android:gravity="center|left"/>
     </LinearLayout>
 
 
@@ -168,6 +164,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="1"
+            android:layout_marginLeft="7dp"
             android:src="@drawable/area" />
 
         <TextView
@@ -177,8 +174,7 @@
             android:layout_weight="9"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
-            android:gravity="center|left"
-            android:text="area"/>
+            android:gravity="center|left"/>
     </LinearLayout>
 
     </LinearLayout>

@@ -1,12 +1,10 @@
 package mina.apps.countries.model;
 
-
-import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Language implements JSONConstructor {
+class Language implements JSONConstructor {
     public String name;
-    public String nativeName;
+    private String nativeName;
 
     public Language construct(JSONObject object) {
         Language item = new Language();

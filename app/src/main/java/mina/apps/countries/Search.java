@@ -18,7 +18,6 @@ public class Search extends AppCompatActivity {
 
         final EditText searchText = (EditText) findViewById(R.id.search_text);
 
-
         Button search = (Button) findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

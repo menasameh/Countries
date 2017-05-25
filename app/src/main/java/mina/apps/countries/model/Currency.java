@@ -3,10 +3,9 @@ package mina.apps.countries.model;
 
 import org.json.JSONObject;
 
-public class Currency implements JSONConstructor {
+class Currency implements JSONConstructor {
     public String name;
-    public String symbol;
-
+    private String symbol;
 
     public Currency construct(JSONObject object) {
         Currency item = new Currency();

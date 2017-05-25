@@ -10,8 +10,7 @@ import com.android.volley.toolbox.Volley;
 public class HTTPHelper {
     private static RequestQueue mQueue;
 
-
-    public static String BASE_URL = "https://restcountries.eu/rest/v2/";
+    private static String BASE_URL = "https://restcountries.eu/rest/v2/";
     public static String GET_ALL = BASE_URL + "all";
     public static String GET_REGION = BASE_URL + "region/";
     public static String GET_COUNTRY_BY_NAME = BASE_URL+"name/";
@@ -22,16 +21,20 @@ public class HTTPHelper {
         return url+"?fields="+fields;
     }
 
+    public static String getRegions() {
+        return HTTPHelper.getFields(HTTPHelper.GET_ALL,"region");
+    }
+
     public static String getRegionCount(String name){
         return getFields(GET_REGION+name, "");
     }
 
     public static String getRegionCountries(String name){
-        return getFields(GET_REGION+name, "name;alpha2Code;population");
+        return getFields(GET_REGION+name, "name;alpha2Code;capital");
     }
 
     public static String getSearchCountries(String name){
-        return getFields(GET_COUNTRY_BY_NAME+name, "name;alpha2Code;population");
+        return getFields(GET_COUNTRY_BY_NAME+name, "name;alpha2Code;capital");
     }
 
     public static String getCountry(String code){

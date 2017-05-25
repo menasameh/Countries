@@ -20,9 +20,9 @@ import mina.apps.countries.network.HTTPHelper;
 
 
 public class CountriesAdapter extends BaseAdapter {
-    LayoutInflater mInflater;
-    Context mContext;
-    ArrayList<Country> mList;
+    private LayoutInflater mInflater;
+    private Context mContext;
+    private ArrayList<Country> mList;
 
     public CountriesAdapter(Context context, ArrayList<Country> list){
         mInflater = LayoutInflater.from(context);
@@ -72,8 +72,8 @@ public class CountriesAdapter extends BaseAdapter {
         TextView name = (TextView) view.findViewById(R.id.name);
         name.setText(country.name);
 
-        TextView population = (TextView) view.findViewById(R.id.population);
-        population.setText(country.population+"");
+        TextView capital = (TextView) view.findViewById(R.id.capital);
+        capital.setText(country.capital);
 
         ImageView flag = (ImageView) view.findViewById(R.id.flag);
         Glide.with(mContext).load(country.getSmallFlag()).into(flag);
@@ -88,6 +88,4 @@ public class CountriesAdapter extends BaseAdapter {
         });
         return view;
     }
-
-
 }

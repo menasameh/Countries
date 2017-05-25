@@ -18,9 +18,9 @@ import mina.apps.countries.network.HTTPHelper;
 
 public class RegionAdapter extends BaseAdapter{
 
-    LayoutInflater mInflater;
-    Context mContext;
-    ArrayList<Region> mList;
+    private LayoutInflater mInflater;
+    private Context mContext;
+    private ArrayList<Region> mList;
 
     public RegionAdapter(Context context, ArrayList<Region> list){
         mInflater = LayoutInflater.from(context);
@@ -59,7 +59,6 @@ public class RegionAdapter extends BaseAdapter{
             view = convertView;
         }
 
-
         final Region r = mList.get(position);
         TextView name = (TextView) view.findViewById(R.id.region_name);
         name.setText(r.name);
@@ -76,10 +75,6 @@ public class RegionAdapter extends BaseAdapter{
                 mContext.startActivity(i);
             }
         });
-
-
-
-
         return view;
     }
 }
